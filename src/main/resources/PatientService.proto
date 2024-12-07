@@ -1,31 +1,41 @@
-syntax="proto3";
-option java_package="com.example.patientmanaserv.patientManagementservice.stubs";
+syntax = "proto3";
+
+package com.spring.patientmanagementservice.grpc;
+option java_package="com.spring.patientmanagementservice.stubs";
+
 service PatientService {
-  rpc getAllPatients(GetAllPatientsRequest) returns (GetAllPatientsResponse);
-  rpc getPatientById(GetPatientByIdRequest) returns (GetPatientByIdResponse);
-  rpc savePatient(SavePatientRequest) returns (SavePatientResponse);
+  // Définir la méthode RPC pour obtenir un patient par son ID
+  rpc getAllPatients (GetAllPatientsRequest) returns (GetAllPatientsRequest);
+  // Définir la méthode RPC pour créer un patient
+  rpc getPatientById (GetPatientByIdRequest) returns (GetPatientByIdRequest);
+
+  rpc savePatient (SavePatientRequest) returns (SavePatientRequest);
 }
 
-      message GetAllPatientsRequest {}
-      message GetAllPatientsResponse {
-        repeated Patient patients = 1;
-      }
-      message Patient {
-        int64 id = 1;
-        string name = 2;
-        string email = 3;
-      }
+// Message pour demander un patient
+message Patient {
+  int64 id=1;
+  string nom = 2;
+  string email= 3;  // L'ID du patient
+}
 
-      message GetPatientByIdRequest {
-        int64 PatientId = 1;
-      }
-      message GetPatientByIdResponse {
-        Patient patient = 1;
-      }
-      message SavePatientRequest {
-        Patient patient = 1;
-      }
-      message SavePatientResponse {
-        Patient patient = 1;
-      }
+// Message pour la création d'un patient
+message GetPatientByIdRequest {
+  int64 patientId=1;
+}
+message GetAllPatientsRequest {}
+message GetAllPatientsResponse {
+  repeated Patient name =1;
+}
+
+// Message pour une réponse contenant les informations d'un patient
+message GetPatientByIdResponse {
+  Patient patient=1;
+}
+message SavePatientRequest {
+  PatientRequest patient=1;
+}
+message PatientRequest {
+  string name=1;
+}
 
