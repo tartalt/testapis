@@ -1,31 +1,31 @@
-//syntax="proto3";
-//option java_package="com.example.patientmanaserv.patientManagementservice.stubs";
-//service PatientService {
-//  rpc getAllPatients(GetAllPatientsRequest) returns (GetAllPatientsResponse);
-//  rpc getPatientById(GetPatientByIdRequest) returns (GetPatientByIdResponse);
-//  rpc savePatient(SavePatientRequest) returns (SavePatientResponse);
-//}
-//
-//      message GetAllPatientsRequest {}
-//      message GetAllPatientsResponse {
-//        repeated Patient patients = 1;
-//      }
-//      message Patient {
-//        int64 id = 1;
-//        string name = 2;
-//        string email = 3;
-//      }
-//
-//      message GetPatientByIdRequest {
-//        int64 PatientId = 1;
-//      }
-//      message GetPatientByIdResponse {
-//        Patient patient = 1;
-//      }
-//      message SavePatientRequest {
-//        Patient patient = 1;
-//      }
-//      message SavePatientResponse {
-//        Patient patient = 1;
-//      }
-//
+syntax="proto3";
+option java_package="com.example.patientmanaserv.patientManagementservice.stubs";
+service PatientService {
+  rpc getAllPatients(GetAllPatientsRequest) returns (GetAllPatientsResponse);
+  rpc getPatientById(GetPatientByIdRequest) returns (GetPatientByIdResponse);
+  rpc savePatient(SavePatientRequest) returns (SavePatientResponse);
+}
+
+      message GetAllPatientsRequest {}
+      message GetAllPatientsResponse {
+        repeated Patient patients = 1;
+      }
+      message Patient {
+        int64 id = 1;
+        string name = 2;
+        string email = 3;
+      }
+
+      message GetPatientByIdRequest {
+        int64 PatientId = 1;
+      }
+      message GetPatientByIdResponse {
+        Patient patient = 1;
+      }
+      message SavePatientRequest {
+        Patient patient = 1;
+      }
+      message SavePatientResponse {
+        Patient patient = 1;
+      }
+
